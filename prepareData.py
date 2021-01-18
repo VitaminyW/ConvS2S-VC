@@ -28,8 +28,8 @@ def PrepareDate(path, logf0s_mean, logf0s_std, mcs_mean, mcs_std,
                                                      fs=sampling_rate,
                                                      frame_period=frame_period,
                                                      num_mcep=num_mcep)
-    f0s += log_pias
     f0s = f0s[0].reshape((1, f0s[0].shape[0]))
+    f0s += log_pias
     f0s = np.log(f0s)
     mcs_mean = mcs_mean.reshape((mcs_mean.shape[0], 1))
     mcs_std = mcs_std.reshape((mcs_std.shape[0], 1))
@@ -79,7 +79,6 @@ def getDataForPrepare(data_dir, batch, sampling_rate=16000, num_mcep=29, frame_p
             fs=sampling_rate,
             frame_period=frame_period,
             num_mcep=num_mcep)
-        print(f0s)
         total_logf0 = 0
         for f0 in f0s:
             f0_num += f0.shape[0]
