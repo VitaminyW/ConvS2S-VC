@@ -27,6 +27,7 @@ def PrepareDate(path, logf0s_mean, logf0s_std, mcs_mean, mcs_std,
                                                      frame_period=frame_period,
                                                      num_mcep=num_mcep)
     f0s = f0s[0].reshape((1, f0s[0].shape[0]))
+    f0s = np.log(f0s)
     mcs_mean = mcs_mean.reshape((mcs_mean.shape[0], 1))
     mcs_std = mcs_std.reshape((mcs_std.shape[0], 1))
     mcs = mcs[0].T
